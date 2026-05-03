@@ -61,31 +61,53 @@ window.onclick = function(event) {
 
 // CONTACTS SECTION
 
- emailjs.init("9Msqin4PxsRVdVLgK");
+// Initialize EmailJS
+emailjs.init("9Msqin4PxsRVdVLgK");
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("status");
+// Elements
+const form = document.getElementById("contact-form");
+const status = document.getElementById("status");
+const button = document.getElementById("send-btn");
+const textarea = document.getElementById("message");
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+// AUTO EXPAND TEXTAREA
+textarea.addEventListener("input", function () {
+  this.style.height = "auto";
+  this.style.height = this.scrollHeight + "px";
+});
 
-    const name = form.user_name.value.trim();
-    const email = form.user_email.value.trim();
-    const message = form.message.value.trim();
+// FORM SUBMIT
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    if (name === "" || email === "" || message === "") {
-      status.textContent = "Please fill out all fields.";
-      return;
-    }
+  // Loading UI
+  button.disabled = true;
+  button.textContent = "Sending...";
+  status.textContent = "";
 
-    status.textContent = "Sending message...";
+  // Send Email
+  emailjs.sendForm(
+    "service_m0mp0ud",
+    "template_n0xdfzd",
+    "#contact-form",
+    "9Msqin4PxsRVdVLgK"
+  )
 
-    emailjs.sendForm("service_m0mp0ud", "template_n0xdfzd", form)
-      .then(() => {
-        status.textContent = "Message sent successfully!";
-        form.reset();
-      })
-      .catch(() => {
-        status.textContent = "Failed to send message. Try again.";
-      });
+  .then(() => {
+    status.textContent = "✅ Message sent successfully!";
+    form.reset();
+
+    // Reset textarea height
+    textarea.style.height = "120px";
+  })
+
+  .catch((error) => {
+    console.error("EmailJS Error:", error);
+    status.textContent = "❌ Failed to send message.";
+  })
+
+  .finally(() => {
+    button.disabled = false;
+    button.textContent = "Send Message";
   });
+});
