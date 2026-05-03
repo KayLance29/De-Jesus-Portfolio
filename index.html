@@ -286,23 +286,35 @@
 
   <form id="contact-form" class="contact-box">
 
+    <!-- NAME -->
     <div class="input-group">
       <input type="text" name="user_name" required>
       <label>Name</label>
     </div>
 
+    <!-- EMAIL -->
     <div class="input-group">
       <input type="email" name="user_email" required>
       <label>Email</label>
     </div>
 
+    <!-- MESSAGE -->
     <div class="input-group">
-      <textarea name="message" rows="5" required></textarea>
+      <textarea 
+        name="message" 
+        id="message"
+        rows="4"
+        required
+      ></textarea>
       <label>Message</label>
     </div>
 
-    <button type="submit">Send Message</button>
+    <!-- BUTTON -->
+    <button type="submit" id="send-btn">
+      Send Message
+    </button>
 
+    <!-- STATUS -->
     <p id="status"></p>
 
   </form>
