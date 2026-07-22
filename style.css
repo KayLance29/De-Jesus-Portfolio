@@ -362,9 +362,6 @@ a {
     box-shadow: 0 0 10px rgb(4, 255, 171);
 }
 
-/* RESPONSIVE DESIGN */
-
-/* TABLET */
 @media (max-width: 992px) {
     .home {
         flex-wrap: wrap;
@@ -396,7 +393,6 @@ a {
     }
 }
 
-/* MOBILE */
 @media (max-width: 576px) {
     .home {
         padding-top: 150px;
@@ -427,7 +423,6 @@ a {
   font-family: 'Poppins', sans-serif;
 }
 
-/* TITLE */
 .section-title {
   text-align: center;
   font-size: 42px;
@@ -439,7 +434,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 35px;
 }
 
 .about-card {
@@ -448,13 +443,15 @@ a {
   background: #172033;
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(4, 255, 171, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: 0.4s ease;
 }
 
 .about-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgb(4, 255, 171);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(4, 255, 171, 0.15);
+  border-color: rgba(4, 255, 171, 0.3);
 }
 
 .about-card h3 {
@@ -467,23 +464,32 @@ a {
   color: #ccc;
   line-height: 1.8;
   margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.about-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
 }
 
 .about-highlight span {
   display: inline-block;
-  margin: 5px;
-  padding: 6px 14px;
+  padding: 7px 15px;
   background: rgb(4, 255, 171);
   color: #1f242d;
   border-radius: 20px;
   font-size: 13px;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border: 1px solid rgb(4, 255, 171);
 }
 
 .about-highlight span:hover {
   background: transparent;
   color: rgb(4, 255, 171);
-  border: 1px solid rgb(4, 255, 171);
+  transform: translateY(-2px);
 }
 
 .about-cards {
@@ -497,45 +503,113 @@ a {
 .mini-card {
   background: #172033;
   padding: 25px;
+  min-height: 100px;
   border-radius: 12px;
   text-align: center;
   transition: 0.4s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(4, 255, 171, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .mini-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgb(4, 255, 171), transparent);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgb(4, 255, 171),
+    transparent
+  );
   opacity: 0;
-  transition: 0.4s;
+  transition: 0.4s ease;
+  pointer-events: none;
 }
 
 .mini-card:hover::before {
-  opacity: 0.2;
+  opacity: 0.08;
 }
 
 .mini-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 20px rgb(4, 255, 171);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(4, 255, 171, 0.12);
+  border-color: rgba(4, 255, 171, 0.3);
 }
 
 .mini-card h4 {
   margin-bottom: 10px;
   color: rgb(4, 255, 171);
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .mini-card p {
   color: #ccc;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
+
+  .about-section {
+    padding: 80px 6%;
+  }
+
+  .section-title {
+    font-size: 34px;
+    margin-bottom: 40px;
+  }
+
+  .about-card {
+    padding: 30px;
+  }
+
+  .about-card h3 {
+    font-size: 25px;
+  }
+
   .about-cards {
     grid-template-columns: 1fr;
   }
+
+}
+
+@media (max-width: 480px) {
+
+  .about-section {
+    padding: 70px 5%;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+
+  .about-card p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .about-highlight {
+    gap: 8px;
+  }
+
+  .about-highlight span {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .mini-card {
+    padding: 22px;
+  }
+
 }
 
 /* EDUCATION SECTION */
@@ -586,7 +660,7 @@ a {
     color: #e2e8f0;
     padding: 20px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
 }
@@ -599,7 +673,7 @@ a {
 /* TEXT */
 .timeline-content h3 {
   margin-bottom: 5px;
-  color: #fff;
+  color: #F1F5F9;
 }
 
 .timeline-content span {
@@ -609,7 +683,7 @@ a {
 
 .timeline-content p {
   margin-top: 10px;
-  color: #ccc;
+  color: #CBD5E1;
 }
 
 /* SKILLS SECTION */
@@ -620,66 +694,117 @@ a {
   color: #fff;
 }
 
-/* GRID */
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 60px;
+  color: rgb(4, 255, 171);
+}
+
 .skills-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  gap: 30px;
   max-width: 1000px;
   margin: auto;
 }
 
-/* BOX */
 .skill-box {
-  background: #172033;;
+  background: #172033;
   padding: 45px 35px;
+  min-height: 300px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  transition: 0.3s;
+
+  border: 1px solid rgba(4, 255, 171, 0.08);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+  transition: 0.4s ease;
 }
 
 .skill-box:hover {
-  transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 0 30px rgb(4, 255, 171);
+  transform: translateY(-6px);
+  border-color: rgba(4, 255, 171, 0.3);
+  box-shadow: 0 10px 30px rgba(4, 255, 171, 0.15);
 }
 
-/* ICON */
 .skill-icon {
   font-size: 65px;
   color: rgb(4, 255, 171);
   margin-bottom: 20px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .skill-box:hover .skill-icon {
-  transform: scale(1.2) rotate(8deg);
+  transform: scale(1.1);
 }
 
-/* TEXT */
+
 .skill-box h3 {
   margin-bottom: 18px;
   color: rgb(4, 255, 171);
-  font-size: 26px;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .skill-box p {
   color: #ccc;
   line-height: 1.8;
-  font-size: 17px;
+  font-size: 15px;
+  max-width: 430px;
+  margin: auto;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
+
+  .skills-section {
+    padding: 80px 6%;
+  }
+
+  .section-title {
+    font-size: 36px;
+    margin-bottom: 45px;
+  }
+
   .skills-container {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 
   .skill-box {
     padding: 35px 25px;
+    min-height: auto;
+  }
+
+}
+@media (max-width: 480px) {
+
+  .skills-section {
+    padding: 70px 5%;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .skill-box {
+    padding: 30px 20px;
+  }
+
+  .skill-icon {
+    font-size: 55px;
+  }
+
+  .skill-box h3 {
+    font-size: 22px;
+  }
+
+  .skill-box p {
+    font-size: 14px;
+    line-height: 1.7;
   }
 }
-
 /* PROJECTS SECTION */
 
 .projects {
